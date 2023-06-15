@@ -20,6 +20,7 @@ struct LoginView: View {
                     .foregroundColor(name.count > 2 ? .green : .red)
             }
             .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
+            
             Button(action: login) {
                 HStack {
                     Image(systemName: "checkmark.circle")
