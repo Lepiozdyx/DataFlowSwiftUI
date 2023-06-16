@@ -57,8 +57,13 @@ struct ButtonView: View {
 }
 
 struct LogOutButtonView: View {
+    @EnvironmentObject private var user: UserSettings
+    
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            user.isLoggedIn = false
+            user.name = ""
+        }) {
             Text("Log Out")
                 .font(.title)
                 .fontWeight(.bold)
