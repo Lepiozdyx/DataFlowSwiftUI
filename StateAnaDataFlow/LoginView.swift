@@ -19,7 +19,7 @@ struct LoginView: View {
                 Text("\(name.count)")
                     .foregroundColor(name.count > 2 ? .green : .red)
             }
-            .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
+            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 40))
             
             Button(action: login) {
                 HStack {
