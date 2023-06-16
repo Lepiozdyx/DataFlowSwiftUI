@@ -49,6 +49,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+// MARK: - ButtonView
 struct ButtonView: View {
     let title: String
     let color: Color
@@ -68,5 +69,6 @@ struct ButtonView: View {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(.black, lineWidth: 4)
         }
+        .disabled(title == "Wait...")
     }
 }
