@@ -21,11 +21,24 @@ struct ContentView: View {
                 .padding(.top, 100)
             
             Spacer()
-            ButtonView(timer: timer)
+            ButtonView(
+                title: timer.buttonTitle,
+                color: .red,
+                action: timer.startTimer
+            )
             Spacer()
-            LogOutButtonView()
+            ButtonView(
+                title: "Log Out",
+                color: .blue,
+                action: logOut
+            )
             Spacer()
         }
+    }
+    
+    private func logOut() {
+        user.isLoggedIn = false
+        user.name = ""
     }
 }
 
@@ -37,40 +50,19 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ButtonView: View {
-    @ObservedObject var timer: TimeCounter
+    let title: String
+    let color: Color
+    let action: () -> Void
     
     var body: some View {
-        Button(action: timer.startTimer) {
-            Text(timer.buttonTitle)
+        Button(action: action) {
+            Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
         .frame(width: 200, height: 60)
-        .background(.red)
-        .cornerRadius(20)
-        .overlay {
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(.black, lineWidth: 4)
-        }
-    }
-}
-
-struct LogOutButtonView: View {
-    @EnvironmentObject private var user: UserSettings
-    
-    var body: some View {
-        Button(action: {
-            user.isLoggedIn = false
-            user.name = ""
-        }) {
-            Text("Log Out")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-        }
-        .frame(width: 200, height: 60)
-        .background(.blue)
+        .background(color)
         .cornerRadius(20)
         .overlay {
             RoundedRectangle(cornerRadius: 20)
