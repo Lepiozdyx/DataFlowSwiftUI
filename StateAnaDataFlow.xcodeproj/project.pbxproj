@@ -15,6 +15,8 @@
 		A88811622A3A3F0100A4487D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88811612A3A3F0100A4487D /* LoginView.swift */; };
 		A88811642A3A3FE800A4487D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88811632A3A3FE800A4487D /* UserSettings.swift */; };
 		A88811662A3A411000A4487D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88811652A3A411000A4487D /* RootView.swift */; };
+		FA289D7B2A3F8EDE00DF616D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289D7A2A3F8EDE00DF616D /* User.swift */; };
+		FA289D7D2A3F8F1F00DF616D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289D7C2A3F8F1F00DF616D /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		A88811612A3A3F0100A4487D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A88811632A3A3FE800A4487D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		A88811652A3A411000A4487D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FA289D7A2A3F8EDE00DF616D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA289D7C2A3F8F1F00DF616D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				A88811652A3A411000A4487D /* RootView.swift */,
 				A888115F2A3A388800A4487D /* TimeCounter.swift */,
 				A88811632A3A3FE800A4487D /* UserSettings.swift */,
+				FA289D7A2A3F8EDE00DF616D /* User.swift */,
+				FA289D7C2A3F8F1F00DF616D /* StorageManager.swift */,
 				A88811552A3A1FFD00A4487D /* Assets.xcassets */,
 				A88811572A3A1FFD00A4487D /* Preview Content */,
 			);
@@ -155,6 +161,8 @@
 				A88811622A3A3F0100A4487D /* LoginView.swift in Sources */,
 				A88811642A3A3FE800A4487D /* UserSettings.swift in Sources */,
 				A88811522A3A1FFC00A4487D /* StateAnaDataFlowApp.swift in Sources */,
+				FA289D7B2A3F8EDE00DF616D /* User.swift in Sources */,
+				FA289D7D2A3F8F1F00DF616D /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
