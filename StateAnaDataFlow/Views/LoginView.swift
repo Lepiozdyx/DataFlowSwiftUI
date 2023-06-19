@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var name = ""
-    @EnvironmentObject private var user: UserSettings
+    @EnvironmentObject private var userSettings: UserSettings
+    private let storageManager = StorageManager.shared
     
     var body: some View {
         VStack {
             HStack {
-                TextField("Enter your name...", text: $name)
+                TextField("Enter your name...", text: $userSettings.user.name)
                     .multilineTextAlignment(.center)
-                Text("\(name.count)")
-                    .foregroundColor(name.count > 2 ? .green : .red)
+                Text("\(userSettings.user.name.count)")
+                    .foregroundColor(userSettings.nameIsValid ? .green : .red)
             }
             .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 40))
             
@@ -27,13 +27,13 @@ struct LoginView: View {
                     Text("OK")
                 }
             }
-            .disabled(name.count < 3)
+            .disabled(!userSettings.nameIsValid)
         }
     }
     
     private func login() {
-            user.name = name
-            user.isLoggedIn = true
+        userSettings.user.isLoggedIn.toggle()
+        storageManager.save(user: userSettings.user)
     }
 }
 

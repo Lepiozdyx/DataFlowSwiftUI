@@ -14,7 +14,9 @@ final class UserSettings: ObservableObject {
         user.name.count >= 3
     }
     
-    init() {}
+    init() {
+        self.user = StorageManager.shared.fetchUser()
+    }
     
     init(user: User) {
         self.user = user
