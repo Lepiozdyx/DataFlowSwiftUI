@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  StateAnaDataFlow
 //
-//  Created by Alexey Efimov on 14.06.2023.
+//  Created by Alex on 14.06.2023.
 //
 
 import SwiftUI
