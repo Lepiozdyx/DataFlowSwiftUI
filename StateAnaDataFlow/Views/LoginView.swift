@@ -12,22 +12,39 @@ struct LoginView: View {
     private let storageManager = StorageManager.shared
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Enter your name...", text: $userSettings.user.name)
-                    .multilineTextAlignment(.center)
-                Text("\(userSettings.user.name.count)")
-                    .foregroundColor(userSettings.nameIsValid ? .green : .red)
-            }
-            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 40))
+        GeometryReader { geometry in
             
-            Button(action: login) {
+            HeaderView(
+                color: .teal,
+                frame: geometry.size.width * 1.9,
+                offset: -geometry.size.width * 1.3
+            )
+            
+            VStack {
                 HStack {
-                    Image(systemName: "checkmark.circle")
-                    Text("OK")
+                    TextField("Enter your name...", text: $userSettings.user.name)
+                        .multilineTextAlignment(.center)
+                    Text("\(userSettings.user.name.count)")
+                        .foregroundColor(userSettings.nameIsValid ? .green : .red)
                 }
+                .padding(
+                    EdgeInsets(
+                        top: geometry.size.width * 0.8,
+                        leading: geometry.size.width * 0.2,
+                        bottom: geometry.size.width * 0.1,
+                        trailing: geometry.size.width * 0.1
+                    )
+                )
+                
+                Button(action: login) {
+                    HStack {
+                        Image(systemName: "checkmark.circle")
+                        Text("OK")
+                    }
+                }
+                .disabled(!userSettings.nameIsValid)
             }
-            .disabled(!userSettings.nameIsValid)
+            .font(.system(size: geometry.size.width * 0.07))
         }
     }
     
@@ -41,5 +58,19 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
             .environmentObject(UserSettings())
+    }
+}
+
+// MARK: - HeaderView
+struct HeaderView: View {
+    let color: Color
+    let frame: CGFloat
+    let offset: CGFloat
+    
+    var body: some View {
+        Circle()
+            .foregroundColor(color)
+            .frame(width: frame)
+            .offset(y: offset)
     }
 }
