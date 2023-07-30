@@ -24,13 +24,13 @@ struct ContentView: View {
             Spacer()
             ButtonView(
                 title: timer.buttonTitle,
-                color: .red,
+                color: .pink,
                 action: timer.startTimer
             )
             Spacer()
             ButtonView(
                 title: "Log Out",
-                color: .blue,
+                color: .teal,
                 action: logOut
             )
             Spacer()
@@ -67,7 +67,7 @@ struct ButtonView: View {
         .cornerRadius(20)
         .overlay {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(.black, lineWidth: 4)
+                .stroke(.black, lineWidth: 2)
         }
         .disabled(title == "Wait...")
     }

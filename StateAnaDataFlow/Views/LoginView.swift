@@ -37,10 +37,7 @@ struct LoginView: View {
                 )
                 
                 Button(action: login) {
-                    HStack {
-                        Image(systemName: "checkmark.circle")
-                        Text("OK")
-                    }
+                    Label("Ok", systemImage: "checkmark.circle")
                 }
                 .disabled(!userSettings.nameIsValid)
             }

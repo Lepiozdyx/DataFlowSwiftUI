@@ -9,7 +9,7 @@ import SwiftUI
 
 final class StorageManager {
     static let shared = StorageManager()
-    
+        
     @AppStorage("user") private var userData: Data?
     
     private init() {}
