@@ -14,11 +14,19 @@ struct LoginView: View {
     var body: some View {
         GeometryReader { geometry in
             
-            HeaderView(
-                color: .teal,
-                frame: geometry.size.width * 1.9,
-                offset: -geometry.size.width * 1.3
-            )
+            ZStack {
+                HeaderView(
+                    color: .pink,
+                    frame: geometry.size.width * 1.9,
+                    offset: -geometry.size.width * 1.3
+                )
+                
+                HeaderView(
+                    color: .teal,
+                    frame: geometry.size.width * 1.5,
+                    offset: -geometry.size.width * 1.1
+                )
+            }
             
             VStack {
                 HStack {
