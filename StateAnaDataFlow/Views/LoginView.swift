@@ -23,7 +23,7 @@ struct LoginView: View {
                 
                 HeaderView(
                     color: .teal,
-                    frame: geometry.size.width * 1.5,
+                    frame: geometry.size.width * 1.4,
                     offset: -geometry.size.width * 1.1
                 )
             }
@@ -49,7 +49,7 @@ struct LoginView: View {
                 }
                 .disabled(!userSettings.nameIsValid)
             }
-            .font(.system(size: geometry.size.width * 0.07))
+            .font(.title)
         }
     }
     

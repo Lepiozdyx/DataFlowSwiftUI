@@ -13,27 +13,36 @@ struct ContentView: View {
     private let storageManager = StorageManager.shared
     
     var body: some View {
-        VStack {
-            Text("Hi, \(userSettings.user.name)!")
-                .font(.largeTitle)
-                .padding(.top, 100)
-            Text(timer.counter.formatted())
-                .font(.largeTitle)
-                .padding(.top, 100)
-            
-            Spacer()
-            ButtonView(
-                title: timer.buttonTitle,
-                color: .pink,
-                action: timer.startTimer
-            )
-            Spacer()
-            ButtonView(
-                title: "Log Out",
-                color: .teal,
-                action: logOut
-            )
-            Spacer()
+        NavigationStack {
+            VStack {
+                Text("Hi, \(userSettings.user.name)!")
+                    .font(.largeTitle)
+                    .padding(.top, 100)
+                Text(timer.counter.formatted())
+                    .font(.largeTitle)
+                    .padding(.top, 100)
+                
+                Spacer()
+                ButtonView(
+                    title: timer.buttonTitle,
+                    color: .pink,
+                    action: timer.startTimer
+                )
+                Spacer()
+                ButtonView(
+                    title: "Log Out",
+                    color: .teal,
+                    action: logOut
+                )
+                Spacer()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: "gearshape.2.fill")
+                    }
+                }
+            }
         }
     }
     
