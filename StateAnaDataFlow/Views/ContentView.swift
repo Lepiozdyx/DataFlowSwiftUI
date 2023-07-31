@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var timer = TimeCounter()
     @EnvironmentObject private var userSettings: UserSettings
+    @State private var isPresented = false
     private let storageManager = StorageManager.shared
     
     var body: some View {
@@ -38,9 +39,14 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    Button(action: {isPresented.toggle()}) {
                         Image(systemName: "gearshape.2.fill")
                     }
+                    .alert("Settings", isPresented: $isPresented, actions: {}) {
+                        Text("Some text")
+                    }
+                    
+                    
                 }
             }
         }
