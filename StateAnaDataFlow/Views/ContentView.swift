@@ -11,6 +11,7 @@ struct ContentView: View {
     @StateObject private var timer = TimeCounter()
     @EnvironmentObject private var userSettings: UserSettings
     @State private var isPresented = false
+    @State private var counterValue = ""
     private let storageManager = StorageManager.shared
     
     var body: some View {
@@ -42,11 +43,12 @@ struct ContentView: View {
                     Button(action: {isPresented.toggle()}) {
                         Image(systemName: "gearshape.2.fill")
                     }
-                    .alert("Settings", isPresented: $isPresented, actions: {}) {
-                        Text("Some text")
-                    }
-                    
-                    
+                    .alert("Settings", isPresented: $isPresented, actions: {
+                        TextField("Enter a number", text: $counterValue)
+                        Button("OK", action: {counterChange()})
+                    }, message: {
+                        Text("Changing the countdown value")
+                    })
                 }
             }
         }
@@ -54,6 +56,14 @@ struct ContentView: View {
     
     private func logOut() {
         storageManager.delete(userSettings: userSettings)
+    }
+    
+    private func counterChange() {
+        if let counterValue = Int(counterValue) {
+            timer.counter = counterValue
+        } else {
+            isPresented = false
+        }
     }
 }
 
