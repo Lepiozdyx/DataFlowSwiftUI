@@ -45,6 +45,7 @@ struct ContentView: View {
                     }
                     .alert("Settings", isPresented: $isPresented, actions: {
                         TextField("Enter a number", text: $counterValue)
+                            .keyboardType(.numberPad)
                         Button("OK", action: {counterChange()})
                     }, message: {
                         Text("Changing the countdown value")
