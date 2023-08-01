@@ -43,6 +43,7 @@ struct ContentView: View {
                     Button(action: {isPresented.toggle()}) {
                         Image(systemName: "gearshape.2.fill")
                     }
+                    .disabled(timer.buttonTitle != "Start")
                     .alert("Settings", isPresented: $isPresented, actions: {
                         TextField("Enter a number", text: $counterValue)
                             .keyboardType(.numberPad)
@@ -60,10 +61,8 @@ struct ContentView: View {
     }
     
     private func counterChange() {
-        if let counterValue = Int(counterValue) {
+        if let counterValue = Int(counterValue), counterValue > 0 {
             timer.counter = counterValue
-        } else {
-            isPresented = false
         }
     }
 }
